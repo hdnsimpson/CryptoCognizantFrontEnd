@@ -30,15 +30,14 @@ export default class Header extends React.Component<IProps,IState> {
                 <div className="container">
                     <div className="row">
                         <div className="col-2 justify-content-center align-self-center">
-                            <h1><span className="red-heading">Like</span>&amp;Scribr</h1>
+                            <h1><span className="red-heading">Crypto </span>Cognizant</h1>
                         </div>
                         <div className="col-10">
                             <TextField
                             id= "Search-Bar"
                             className = "SearchBar"
-                            placeholder="Add Video Url"
+                            placeholder="Add Coin Symbol"
                             margin="normal"
-                            variant="outlined"
                             onChange = { (event: any ) => this.setState({input:event.target.value})}
                             value = {this.state.input}
                             InputProps={{
