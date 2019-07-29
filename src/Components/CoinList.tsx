@@ -22,7 +22,7 @@ export default class CoinList extends React.Component<IProps,IState>{
     }
 
     public deleteCoin = (id:any) => {
-        fetch("https://scriberapi.azurewebsites.net/api/Videos/"+id,{
+        fetch("https://cryptocognizantapidevops.azurewebsites.net/api/Coins/"+id,{
             method:'DELETE'
         }).then(() => {
             this.updateList()
@@ -64,7 +64,7 @@ export default class CoinList extends React.Component<IProps,IState>{
             "path":"/isFavourite",
             "value":!coin.isFavourite,
         }]
-        fetch("https://scriberapi.azurewebsites.net/api/Videos/update/"+coin.coinId, {
+        fetch("https://cryptocognizantapidevops.azurewebsites.net/api/Coins/update/"+coin.coinId, {
             body:JSON.stringify(toSend),
             headers: {
               Accept: "text/plain",
