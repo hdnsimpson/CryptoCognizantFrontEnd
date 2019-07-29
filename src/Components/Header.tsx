@@ -29,10 +29,10 @@ export default class Header extends React.Component<IProps,IState> {
             <div className="header">
                 <div className="container">
                     <div className="row">
-                        <div className="col-2 justify-content-center align-self-center">
+                        <div className="col-4 justify-content-center align-self-center">
                             <h1><span className="red-heading">Crypto </span>Cognizant</h1>
                         </div>
-                        <div className="col-10">
+                        <div className="col-8">
                             <TextField
                             id= "Search-Bar"
                             className = "SearchBar"

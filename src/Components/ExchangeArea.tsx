@@ -91,15 +91,15 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
         return (
             <div className="caption-area">
                 <div className="row">
-                    <div className="col-2 justify-content-center align-self-center">
+                    <div className="col-4 justify-content-center align-self-center">
                         <h1><span className="red-heading">Search</span> Trading Pairs</h1>
                     </div>
-                    <div className="col-10">
+                    <div className="col-8">
                         
                         <TextField
                             id="Search-Bar"
                             className="SearchBar"
-                            placeholder="Search Captions"
+                            placeholder="Search Pairs"
                             margin="normal"
                             variant="outlined"
                             onChange={(event: any) => this.setState({ input: event.target.value })}
