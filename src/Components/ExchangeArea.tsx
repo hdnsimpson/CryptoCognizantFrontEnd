@@ -11,11 +11,11 @@ interface IState {
 }
 
 interface IProps {
-    currentVideo:any,
+    currentCoin:any,
     play: any
 }
 
-export default class CaptionArea extends React.Component<IProps, IState>{
+export default class ExchangeArea extends React.Component<IProps, IState>{
     public constructor(props: any) {
         super(props);
         this.state = {
@@ -43,32 +43,33 @@ export default class CaptionArea extends React.Component<IProps, IState>{
         }
     }
 
-    public handleTableClick = (videoUrl:any, timedURL: string) => {
+    public handleTableClick = (coinSymbol:any) => {
         window.scrollTo(0,0);
-        this.props.play(videoUrl + "&t=" + timedURL + "s")
+        // this.props.play(videoUrl + "&t=" + timedURL + "s")
     }
 
     public makeTableBody = () => {
         const toRet: any[] = [];
         this.state.result.sort((a:any, b:any)=>{
-            if(a.webUrl === b.webUrl){
+            if(a.coinSymbol === b.coinSymbol){
                 return 0;
-            }else if(a.webUrl === this.props.currentVideo){
+            }else if(a.coinSymbol === this.props.currentCoin){
                 return -1;
-            }else if(b.webUrl === this.props.currentVideo){
+            }else if(b.coinSymbol === this.props.currentCoin){
                 return 1;
             }
             else{
-                return a.videoTitle.localeCompare(b.videoTitle);
+                return a.coinSymbol.localeCompare(b.coinSymbol);
             }
         })
-        this.state.result.forEach((video: any) => {
-            video.transcription.forEach((caption: any) => {
+        this.state.result.forEach((coin: any) => {
+            coin.exchange.forEach((exchange: any) => {
                 toRet.push(
-                    <tr onClick={() => this.handleTableClick(video.webUrl,caption.startTime)}>
-                        <td>{caption.startTime}</td>
-                        <td>{caption.phrase}</td>
-                        <td>{video.videoTitle}</td>
+                    <tr onClick={() => this.handleTableClick(coin.coinSymbol)}>
+                        <td>{exchange.exchangeName}</td>
+                        <td>{exchange.coinSymbol}</td>
+                        <td>{exchange.pairs}</td>
+                        <td>{exchange.isActive}</td>
                     </tr>)
             })
         });
@@ -91,7 +92,7 @@ export default class CaptionArea extends React.Component<IProps, IState>{
             <div className="caption-area">
                 <div className="row">
                     <div className="col-2 justify-content-center align-self-center">
-                        <h1><span className="red-heading">search</span>caption</h1>
+                        <h1><span className="red-heading">Search</span> Trading Pairs</h1>
                     </div>
                     <div className="col-10">
                         
@@ -116,9 +117,10 @@ export default class CaptionArea extends React.Component<IProps, IState>{
                 <br />
                 <table className="table">
                     <tr>
-                        <th>Time</th>
-                        <th>Caption</th>
-                        <th>Video</th>
+                        <th>Exchange</th>
+                        <th>Coin Symbol</th>
+                        <th>Trading Pairs</th>
+                        <th>Active</th>
                     </tr>
                     <tbody className="captionTable">
                         {this.state.body}

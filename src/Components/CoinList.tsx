@@ -4,7 +4,7 @@ import StarBorder from '@material-ui/icons/StarBorder'
 import * as React from 'react'
 
 interface IState{
-    videoList: any
+    coinList: any
 }
 
 interface IProps{
@@ -12,16 +12,16 @@ interface IProps{
     play:any
 }
 
-export default class VideoList extends React.Component<IProps,IState>{
+export default class CoinList extends React.Component<IProps,IState>{
     public constructor(props:any){
         super(props);
         this.state = {
-            videoList: []
+            coinList: []
         }
         this.updateList();
     }
 
-    public deleteVideo = (id:any) => {
+    public deleteCoin = (id:any) => {
         fetch("https://scriberapi.azurewebsites.net/api/Videos/"+id,{
             method:'DELETE'
         }).then(() => {
@@ -29,8 +29,8 @@ export default class VideoList extends React.Component<IProps,IState>{
         })
     }
 
-    public playVideo = (videoUrl:string) => {
-        this.props.play(videoUrl)
+    public playCoin = (coinSymbol:string) => {
+        this.props.play(coinSymbol)
     }
 
     public updateList = () => {
@@ -40,31 +40,31 @@ export default class VideoList extends React.Component<IProps,IState>{
             return ret.json();
         }).then((result:any) => {
             const output:any[] = []
-            result.forEach((video:any) => {
+            result.forEach((coin:any) => {
                 const row = (<tr>
-                    <td className="align-middle" onClick={() => this.handleLike(video)}>{video.isFavourite === true?<Star/>:<StarBorder/>}</td>
-                    <td className="align-middle" onClick={() => this.playVideo(video.webUrl)}><img src={video.thumbnailUrl} width="100px" alt="Thumbnail"/></td>
-                    <td className="align-middle" onClick={() => this.playVideo(video.webUrl)}><b>{video.videoTitle}</b></td>
-                    <td className="align-middle video-list-close"><button onClick={() => this.deleteVideo(video.videoId)}><Close/></button></td>
+                    <td className="align-middle" onClick={() => this.handleLike(coin)}>{coin.isFavourite === true?<Star/>:<StarBorder/>}</td>
+                    <td className="align-middle" onClick={() => this.playCoin(coin.coinSymbol)}><img src={"https://www.cryptocompare.com" + coin.imageUrl} width="40px" alt="Coin Image"/></td>
+                    <td className="align-middle" onClick={() => this.playCoin(coin.coinSymbol)}><b>{coin.coinSymbol}</b></td>
+                    <td className="align-middle video-list-close"><button onClick={() => this.deleteCoin(coin.coinId)}><Close/></button></td>
                 </tr>)
-                if(video.isFavourite){
+                if(coin.isFavourite){
                     output.unshift(row);
                 }else{
                     output.push(row);
                 }
             });
-            this.setState({videoList:output})
+            this.setState({coinList:output})
         })
     }
 
-    public handleLike = (video:any) => {
+    public handleLike = (coin:any) => {
         const toSend = [{
             "from":"",
             "op":"replace",
             "path":"/isFavourite",
-            "value":!video.isFavourite,
+            "value":!coin.isFavourite,
         }]
-        fetch("https://scriberapi.azurewebsites.net/api/Videos/update/"+video.videoId, {
+        fetch("https://scriberapi.azurewebsites.net/api/Videos/update/"+coin.coinId, {
             body:JSON.stringify(toSend),
             headers: {
               Accept: "text/plain",
@@ -86,9 +86,9 @@ export default class VideoList extends React.Component<IProps,IState>{
     public render() {
         return (
             <div className="video-list">
-                <h1 className="play-heading"><span className="red-heading">play</span>video</h1>
+                <h1 className="play-heading"><span className="red-heading">Select </span>Coin</h1>
                 <table className="table">
-                    {this.state.videoList}
+                    {this.state.coinList}
                 </table>
             </div>
         )

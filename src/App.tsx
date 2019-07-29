@@ -1,25 +1,25 @@
 import * as React from 'react';
-import ReactPlayer from 'react-player';
-import CaptionArea from 'src/Components/CaptionArea';
+import ExchangeArea from 'src/Components/ExchangeArea';
 import Header from 'src/Components/Header';
-import VideoList from 'src/Components/VideoList';
+import CoinList from 'src/Components/CoinList';
 import 'src/App.css'
 
 interface IState {
-  updateVideoList: any,
+  updateCoinList: any,
   player: any,
-  playingURL: string
-  videoList: object
+  coinSymbol: string
+  coinList: object
 }
 
 class App extends React.Component<{}, IState>{
   public constructor(props: any) {
     super(props);
     this.state = {
+      coinList: [],
+      coinSymbol: "",
       player: null,
-      playingURL: "",
-      updateVideoList: null,
-      videoList: [],
+      updateCoinList: null,
+      
     }
   }
 
@@ -29,8 +29,8 @@ class App extends React.Component<{}, IState>{
     })
   }
 
-  public addVideo = (url: string) => {
-    const body = {"url": url}
+  public addCoin = (sym: string) => {
+    const body = {"sym": sym}
     fetch("https://scriberapi.azurewebsites.net/api/Videos", {
       body: JSON.stringify(body),
       headers: {
@@ -39,50 +39,35 @@ class App extends React.Component<{}, IState>{
       },
       method: "POST"
     }).then(() => {
-      this.state.updateVideoList();
+      this.state.updateCoinList();
     })
   }
 
-  public updateURL = (url: string) => {
-    if(this.state.playingURL === url){
-      this.setState({playingURL : ""},() => this.setState({playingURL: url}))
+  public updateSym = (sym: string) => {
+    if(this.state.coinSymbol === sym){
+      this.setState({coinSymbol : ""},() => this.setState({coinSymbol: sym}))
     }else{
-      this.setState({playingURL:url})
+      this.setState({coinSymbol:sym})
     }
   }
 
   public listMounted = (callbacks: any) => {
-    this.setState({ updateVideoList: callbacks })
+    this.setState({ updateCoinList: callbacks })
   }
 
   public render() {
     return (<div>
-      <Header addVideo={this.addVideo} />
+      <Header addCoin={this.addCoin} />
       <div className="container">
         <div className="row">
           <div className="col-7">
-            <ReactPlayer
-              className="player"
-              ref={this.setRef}
-              controls={true}
-              url={this.state.playingURL}
-              width="100%"
-              height="400px"
-              playing={true}
-              config={{
-                youtube: {
-                  playerVars: { showinfo: 1 },
-                  preload: true
-                }
-              }
-              }
-            />
+            <h1>Coin info Placeholder</h1>
           </div>
           <div className="col-5">
-            <VideoList play={this.updateURL} mount={this.listMounted} />
+            <CoinList play={this.updateSym} mount={this.listMounted} />
           </div>
         </div>
-        <CaptionArea currentVideo={this.state.playingURL} play={this.updateURL} />
+        <ExchangeArea currentCoin={this.state.coinSymbol} play={this.updateSym} />
       </div>
     </div>)
   }

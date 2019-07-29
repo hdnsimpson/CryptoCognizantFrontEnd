@@ -5,7 +5,7 @@ import AddCircle from '@material-ui/icons/AddCircle'
 import * as React from 'react';
 
 interface IProps{
-    addVideo:any,
+    addCoin:any,
 }
 
 interface IState{
@@ -20,8 +20,8 @@ export default class Header extends React.Component<IProps,IState> {
         }
     }
 
-    public addVideo = () =>{            
-        this.props.addVideo(this.state.input)
+    public addCoin = () =>{            
+        this.props.addCoin(this.state.input)
     }
 
     public render() {
@@ -42,7 +42,7 @@ export default class Header extends React.Component<IProps,IState> {
                             value = {this.state.input}
                             InputProps={{
                                 endAdornment: <InputAdornment position="end">
-                                    <IconButton onClick={this.addVideo}>
+                                    <IconButton onClick={this.addCoin}>
                                         <AddCircle/>
                                     </IconButton>
                                 </InputAdornment>,
