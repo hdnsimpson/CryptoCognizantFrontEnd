@@ -34,7 +34,7 @@ export default class CoinList extends React.Component<IProps,IState>{
     }
 
     public updateList = () => {
-        fetch('https://scriberapi.azurewebsites.net/api/Videos',{
+        fetch('https://cryptocognizantapidevops.azurewebsites.net/api/Coins',{
             method:'GET'
         }).then((ret:any) => {
             return ret.json();

@@ -60,10 +60,10 @@ class App extends React.Component<{}, IState>{
       <Header addCoin={this.addCoin} />
       <div className="container">
         <div className="row">
-          <div className="col-7">
+          <div className="col-9">
             <h1>Coin info Placeholder</h1>
           </div>
-          <div className="col-5">
+          <div className="col-3">
             <CoinList play={this.updateSym} mount={this.listMounted} />
           </div>
         </div>
