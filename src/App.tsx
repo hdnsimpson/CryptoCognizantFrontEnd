@@ -31,7 +31,7 @@ class App extends React.Component<{}, IState>{
 
   public addCoin = (sym: string) => {
     const body = {"sym": sym}
-    fetch("https://scriberapi.azurewebsites.net/api/Videos", {
+    fetch("https://cryptocognizantapidevops.azurewebsites.net/api/Coins", {
       body: JSON.stringify(body),
       headers: {
         Accept: "text/plain",
