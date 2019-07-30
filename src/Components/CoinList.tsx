@@ -30,7 +30,7 @@ export default class CoinList extends React.Component<IProps,IState>{
     }
 
     public playCoin = (coinSymbol:string) => {
-        this.props.play(coinSymbol)
+        window.scrollTo(0,0);
     }
 
     public updateList = () => {
