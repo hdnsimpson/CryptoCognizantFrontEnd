@@ -87,3 +87,23 @@ h2 {
 .player {
   background-color: black;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fdf4ff; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6D6D6D; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #13052B; 
+}
