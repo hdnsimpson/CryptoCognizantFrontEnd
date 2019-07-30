@@ -12,7 +12,7 @@ export default class Header extends React.Component<{}> {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 justify-content-center align-self-center">
-                            <h1><span className="red-heading">Share </span>this site</h1>
+                            <h2><span className="red-heading">Share </span>this site</h2>
                         </div>
                     </div>
                 </div>
