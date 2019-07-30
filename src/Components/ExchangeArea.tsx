@@ -91,10 +91,10 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
         return (
             <div className="caption-area">
                 <div className="row">
-                    <div className="col-4 justify-content-center align-self-center">
-                        <h1><span className="red-heading">Search</span> Trading Pairs</h1>
+                    <div className="col-3 justify-content-center align-self-center">
+                        <h2><span className="red-heading">Trading</span> Pairs</h2>
                     </div>
-                    <div className="col-8">
+                    <div className="col-9">
                         
                         <TextField
                             id="Search-Bar"

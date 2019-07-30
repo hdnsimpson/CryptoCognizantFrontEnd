@@ -86,7 +86,7 @@ export default class CoinList extends React.Component<IProps,IState>{
     public render() {
         return (
             <div className="video-list">
-                <h1 className="play-heading"><span className="red-heading">Select </span>Coin</h1>
+                <h2 className="play-heading"><span className="red-heading">Coin </span>List</h2>
                 <table className="table">
                     {this.state.coinList}
                 </table>

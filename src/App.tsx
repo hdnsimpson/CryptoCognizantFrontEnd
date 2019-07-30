@@ -61,13 +61,12 @@ class App extends React.Component<{}, IState>{
       <div className="container">
         <div className="row">
           <div className="col-9">
-            <h1>Coin info Placeholder</h1>
+            <ExchangeArea currentCoin={this.state.coinSymbol} play={this.updateSym} />
           </div>
           <div className="col-3">
             <CoinList play={this.updateSym} mount={this.listMounted} />
           </div>
         </div>
-        <ExchangeArea currentCoin={this.state.coinSymbol} play={this.updateSym} />
       </div>
     </div>)
   }
