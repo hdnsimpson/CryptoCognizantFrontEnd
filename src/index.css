@@ -9,6 +9,7 @@ body {
 .header {
   background-color: #13052B;
   padding-top: 10px;
+  padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
@@ -55,15 +56,15 @@ h2 {
 }
 
 .video-list {
-  background-color: #F5F5F5;
+  background-color: #fdf4ff;
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 400px;
+  height: 450px;
 }
 
 .video-list button {
   border: none;
-  background-color: #F5F5F5;
+  background-color: #fdf4ff;
 }
 
 .video-list > .table {
@@ -71,11 +72,11 @@ h2 {
 }
 
 .video-list-close {
-  width: 60px;
+  width: 50px;
 }
 
 .caption-area {
-  background-color: #F5F5F5;
+  background-color: #fdf4ff;
   padding: 30px;
 }
 

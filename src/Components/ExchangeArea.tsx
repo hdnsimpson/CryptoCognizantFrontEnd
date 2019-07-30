@@ -66,7 +66,7 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
             coin.exchange.forEach((exchange: any) => {
                 toRet.push(
                     <tr onClick={() => this.handleTableClick(coin.coinSymbol)}>
-                        <td>{exchange.exchangeName}</td>
+                        <td><span className="red-heading"><b>{exchange.exchangeName}</b></span></td>
                         <td>{exchange.coinSymbol}</td>
                         <td className="pairings">{exchange.pairs}</td>
                     </tr>)
