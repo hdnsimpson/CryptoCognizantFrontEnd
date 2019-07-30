@@ -30,6 +30,7 @@ export default class Header extends React.Component<IProps,IState> {
                 <div className="container">
                     <div className="row">
                         <div className="col-4 justify-content-center align-self-center">
+                            <img className="logo" src="../CC.png"/>
                             <h1><span className="red-heading">Crypto </span>Cognizant</h1>
                         </div>
                         <div className="col-8">
