@@ -68,8 +68,7 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
                     <tr onClick={() => this.handleTableClick(coin.coinSymbol)}>
                         <td>{exchange.exchangeName}</td>
                         <td>{exchange.coinSymbol}</td>
-                        <td>{exchange.pairs}</td>
-                        <td>{exchange.isActive}</td>
+                        <td className="pairings">{exchange.pairs}</td>
                     </tr>)
             })
         });
@@ -119,8 +118,7 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
                     <tr>
                         <th>Exchange</th>
                         <th>Coin Symbol</th>
-                        <th>Trading Pairs</th>
-                        <th>Active</th>
+                        <th className="pairings">Trading Pairs</th>
                     </tr>
                     <tbody className="captionTable">
                         {this.state.body}

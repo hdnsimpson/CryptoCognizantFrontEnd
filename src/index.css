@@ -37,10 +37,21 @@ h2 {
 
 .table {
   font-size: 12px;
+  table-layout: fixed;
+  width: 100%;
 }
 
 .table td, .table th {
   padding: 7px;
+  min-width: 20%;
+  max-width: 20%;
+  word-wrap: break-word;
+}
+
+.pairings {
+  padding: 7px;
+  width: 60%;
+  word-wrap: break-word;
 }
 
 .video-list {
