@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ExchangeArea from 'src/Components/ExchangeArea';
 import Header from 'src/Components/Header';
+import Footer from 'src/Components/Footer';
 import CoinList from 'src/Components/CoinList';
 import 'src/App.css'
 
@@ -68,6 +69,7 @@ class App extends React.Component<{}, IState>{
           </div>
         </div>
       </div>
+      <Footer />
     </div>)
   }
 }

@@ -13,6 +13,15 @@ body {
   margin-bottom: 20px;
 }
 
+.footer {
+  background-color: #13052B;
+  margin-top: 210px;
+  padding-top: 10px;
+  bottom:0;
+  width:100%;
+  height:210px;
+}
+
 h1 {
   font-size: 28px;
   font-weight: 600;
