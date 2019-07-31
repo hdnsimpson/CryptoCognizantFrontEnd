@@ -5,6 +5,7 @@
     "dependencies": {
         "@material-ui/core": "^4.0.1",
         "@material-ui/icons": "^4.0.1",
+        "@types/react-share": "^2.1.1",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-player": "^1.11.1",

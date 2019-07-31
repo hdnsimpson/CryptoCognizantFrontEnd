@@ -16,7 +16,7 @@ body {
 .footer {
   background-color: #13052B;
   margin-top: 210px;
-  padding-top: 10px;
+  padding-top: 15px;
   bottom:0;
   width:100%;
   height:210px;
@@ -116,5 +116,10 @@ h2 {
 .logo {
   width: 35px;
   float: left;
+  margin-right: 10px;
+}
+
+.sharable {
+  margin-top: 10px;
   margin-right: 10px;
 }
