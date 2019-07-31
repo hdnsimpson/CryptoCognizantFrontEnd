@@ -33,8 +33,8 @@ export default class Header extends React.Component<{}> {
                         <div className="sharable">
                             <FacebookShareButton
                                 url="https://cryptocognizant.azurewebsites.net/"
-                                quote="I keep track of my trading pairs with CryptoCognizant!"
-                                hashtag="#cryptocurrency">
+                                quote="I keep track of my trading pairs with Crypto Cognizant!"
+                                hashtag="#Cryptocurrency">
                                 <FacebookIcon
                                     size={32}
                                     round={true} />
