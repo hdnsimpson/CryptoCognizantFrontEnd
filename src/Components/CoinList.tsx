@@ -43,7 +43,7 @@ export default class CoinList extends React.Component<IProps,IState>{
             result.forEach((coin:any) => {
                 const row = (<tr>
                     <td className="align-middle cursorMode" onClick={() => this.handleLike(coin)}>{coin.isFavourite === true?<Star/>:<StarBorder/>}</td>
-                    <td className="align-middle"><img src={"https://www.cryptocompare.com" + coin.imageUrl} width="40px" alt="Coin Image"/></td>
+                    <td className="align-middle"><img src={"https://www.cryptocompare.com" + coin.imageUrl} width="40px" alt={coin.coinSymbol + " Logo"}/></td>
                     <td className="align-middle"><b>{coin.coinSymbol}</b></td>
                     <td className="align-middle video-list-close"><button onClick={() => this.deleteCoin(coin.coinId)}><Close/></button></td>
                 </tr>)
