@@ -32,7 +32,9 @@ export default class Header extends React.Component<{}> {
                     <div className="row">
                         <div className="sharable">
                             <FacebookShareButton
-                                url="https://cryptocognizant.azurewebsites.net/">
+                                url="https://cryptocognizant.azurewebsites.net/"
+                                quote="I keep track of my trading pairs with CryptoCognizant!"
+                                hashtag="#cryptocurrency">
                                 <FacebookIcon
                                     size={32}
                                     round={true} />
@@ -40,7 +42,8 @@ export default class Header extends React.Component<{}> {
                         </div>
                         <div className="sharable">
                             <TwitterShareButton
-                                url="https://cryptocognizant.azurewebsites.net/">
+                                url="https://cryptocognizant.azurewebsites.net/"
+                                title="Crypto Cognizant">
                                 <TwitterIcon
                                     size={32}
                                     round={true} />
@@ -48,7 +51,8 @@ export default class Header extends React.Component<{}> {
                         </div>
                         <div className="sharable">
                             <WhatsappShareButton
-                                url="https://cryptocognizant.azurewebsites.net/">
+                                url="https://cryptocognizant.azurewebsites.net/"
+                                title="Crypto Cognizant">
                                 <WhatsappIcon
                                     size={32}
                                     round={true} />
@@ -56,7 +60,8 @@ export default class Header extends React.Component<{}> {
                         </div>
                         <div className="sharable">
                             <RedditShareButton
-                                url="https://cryptocognizant.azurewebsites.net/">
+                                url="https://cryptocognizant.azurewebsites.net/"
+                                title="Crypto Cognizant">
                                 <RedditIcon
                                     size={32}
                                     round={true} />
@@ -64,7 +69,9 @@ export default class Header extends React.Component<{}> {
                         </div>
                         <div className="sharable">
                             <TumblrShareButton
-                                url="https://cryptocognizant.azurewebsites.net/">
+                                url="https://cryptocognizant.azurewebsites.net/"
+                                title="Crypto Cognizant"
+                                caption="I keep track of my trading pairs with Crypto Cognizant!">
                                 <TumblrIcon
                                     size={32}
                                     round={true} />
@@ -72,7 +79,9 @@ export default class Header extends React.Component<{}> {
                         </div>
                         <div className="sharable">
                             <EmailShareButton
-                                url="https://cryptocognizant.azurewebsites.net/">
+                                url="https://cryptocognizant.azurewebsites.net/"
+                                subject="Crypto Cognizant"
+                                body="I keep track of my trading pairs with Crypto Cognizant!">
                                 <EmailIcon
                                     size={32}
                                     round={true} />
