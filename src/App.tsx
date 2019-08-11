@@ -69,7 +69,8 @@ class App extends React.Component<{}, IState>{
       <Header addCoin={this.addCoin} />
       <div className="container">
         <div className="row">
-          <h3>Please login to continue</h3>
+          <div className="auth">
+          <p className="authMessage">Please authenticate with Facebook to begin</p>
           <FacebookLogin
             appId="2310147239225554"
             autoLoad={false}
@@ -77,6 +78,7 @@ class App extends React.Component<{}, IState>{
             onClick={this.facebookLoginClicked}
             callback={this.responseFacebook}
             />
+            </div>
         </div>
       </div>
       <Footer />

@@ -22,6 +22,12 @@ body {
   height:210px;
 }
 
+.auth {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 30%;
+}
+
 h1 {
   font-size: 28px;
   font-weight: 600;
