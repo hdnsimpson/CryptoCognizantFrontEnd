@@ -1,6 +1,6 @@
 import Close from '@material-ui/icons/Close'
-import Star from '@material-ui/icons/Star'
-import StarBorder from '@material-ui/icons/StarBorder'
+import Favourite from '@material-ui/icons/Favorite'
+import FavouriteBorder from '@material-ui/icons/FavoriteBorder'
 import * as React from 'react'
 
 interface IState{
@@ -42,7 +42,7 @@ export default class CoinList extends React.Component<IProps,IState>{
             const output:any[] = []
             result.forEach((coin:any) => {
                 const row = (<tr>
-                    <td className="align-middle cursorMode" onClick={() => this.handleLike(coin)}>{coin.isFavourite === true?<Star/>:<StarBorder/>}</td>
+                    <td className="align-middle cursorMode" onClick={() => this.handleLike(coin)}>{coin.isFavourite === true?<Favourite/>:<FavouriteBorder/>}</td>
                     <td className="align-middle"><img src={"https://www.cryptocompare.com" + coin.imageUrl} width="40px" alt={coin.coinSymbol + " Logo"}/></td>
                     <td className="align-middle"><b>{coin.coinSymbol}</b></td>
                     <td className="align-middle video-list-close"><button onClick={() => this.deleteCoin(coin.coinId)}><Close/></button></td>
