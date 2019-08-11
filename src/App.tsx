@@ -3,9 +3,11 @@ import ExchangeArea from 'src/Components/ExchangeArea';
 import Header from 'src/Components/Header';
 import Footer from 'src/Components/Footer';
 import CoinList from 'src/Components/CoinList';
-import 'src/App.css'
+import 'src/App.css';
+import FacebookLogin from 'react-facebook-login';
 
 interface IState {
+  authenticated: boolean,
   updateCoinList: any,
   player: any,
   coinSymbol: string
@@ -16,12 +18,16 @@ class App extends React.Component<{}, IState>{
   public constructor(props: any) {
     super(props);
     this.state = {
+      authenticated: false,
       coinList: [],
       coinSymbol: "",
       player: null,
       updateCoinList: null,
       
     }
+
+    this.responseFacebook = this.responseFacebook.bind(this)
+    this.facebookLoginClicked = this.facebookLoginClicked.bind(this)
   }
 
   public setRef = (playerRef: any) => {
@@ -58,6 +64,27 @@ class App extends React.Component<{}, IState>{
 
   public render() {
     return (<div>
+      {(!this.state.authenticated) ?
+      <div>
+      <Header addCoin={this.addCoin} />
+      <div className="container">
+        <div className="row">
+          <h3>Please login to continue</h3>
+          <FacebookLogin
+            appId="2310147239225554"
+            autoLoad={false}
+            fields="name,email,picture"
+            onClick={this.facebookLoginClicked}
+            callback={this.responseFacebook}
+            />
+        </div>
+      </div>
+      <Footer />
+      </div>
+      : ""}
+
+      {(this.state.authenticated) ?
+      <div>
       <Header addCoin={this.addCoin} />
       <div className="container">
         <div className="row">
@@ -70,7 +97,20 @@ class App extends React.Component<{}, IState>{
         </div>
       </div>
       <Footer />
+      </div>
+      : ""}
     </div>)
+  }
+
+  private facebookLoginClicked(response: any) {
+    this.responseFacebook(response);
+  }
+
+  private responseFacebook = (response: any) => {
+    console.log(response);
+    if (!(response.name === "")) {
+      this.setState({authenticated: true})
+    }
   }
 }
 

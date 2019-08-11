@@ -5,9 +5,11 @@
     "dependencies": {
         "@material-ui/core": "^4.0.1",
         "@material-ui/icons": "^4.0.1",
+        "@types/react-facebook-login": "^4.1.0",
         "@types/react-share": "^2.1.1",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
+        "react-facebook-login": "^4.1.1",
         "react-player": "^1.11.1",
         "react-scripts-ts": "3.1.0",
         "react-share": "^3.0.0"
