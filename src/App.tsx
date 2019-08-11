@@ -5,6 +5,7 @@ import Footer from 'src/Components/Footer';
 import CoinList from 'src/Components/CoinList';
 import 'src/App.css';
 import FacebookLogin from 'react-facebook-login';
+import HeaderNoSearch from './Components/HeaderNoSearch';
 
 interface IState {
   authenticated: boolean,
@@ -66,7 +67,7 @@ class App extends React.Component<{}, IState>{
     return (<div>
       {(!this.state.authenticated) ?
       <div>
-      <Header addCoin={this.addCoin} />
+      <HeaderNoSearch addCoin={this.addCoin} />
       <div className="container">
         <div className="row">
           <div className="auth">

@@ -13,6 +13,13 @@ body {
   margin-bottom: 20px;
 }
 
+.headerNoSearch {
+  background-color: #13052B;
+  margin-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 .footer {
   background-color: #13052B;
   margin-top: 210px;
