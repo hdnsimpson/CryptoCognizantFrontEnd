@@ -26,7 +26,7 @@ body {
   padding-top: 15px;
   bottom:0;
   width:100%;
-  height:210px;
+  height:300px;
 }
 
 .auth {
@@ -132,4 +132,32 @@ h2 {
   margin-top: 10px;
   margin-right: 10px;
   cursor: pointer;
+}
+
+.spacer {
+  height: 30px;
+}
+
+.spacerSmall {
+  height: 15px;
+}
+
+.links {
+  color: #6D6D6D;
+}
+
+a:link {
+  color: #E776AB;
+}
+
+a:visited {
+  color: #E776AB;
+}
+
+a:hover {
+  color: rgb(173, 76, 121);
+}
+
+a:active {
+  color: rgb(173, 76, 121);
 }

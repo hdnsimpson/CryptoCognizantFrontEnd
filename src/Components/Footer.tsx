@@ -88,6 +88,28 @@ export default class Header extends React.Component<{}> {
                             </EmailShareButton>
                         </div>
                     </div>
+                    <div className="spacer" />
+                    <div className="row">
+                        <div className="col-12 justify-content-center align-self-center">
+                            <h2><span className="red-heading">From </span>the creator</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-12 justify-content-center align-self-center">
+                            <p className="links"><b><a href="https://github.com/hdnsimpson" target="_blank">Github</a> | <a href="https://www.linkedin.com/in/hayden-simpson/" target="_blank">LinkedIn</a> | <a href="mailto: hdnsimpson@gmail.com" target="_blank">Email</a></b></p>
+                        </div>
+                    </div>
+                    <div className="spacerSmall" />
+                    <div className="row">
+                        <div className="col-12 justify-content-center align-self-center">
+                            <h2><span className="red-heading">Other </span>information</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-12 justify-content-center align-self-center">
+                            <p className="links"><b><a href="https://www.freeprivacypolicy.com/privacy/view/0e2e833bfc28ebf57793f76858c743f7" target="_blank">Privacy Policy</a> | <a href="https://cryptocognizantapidevops.azurewebsites.net/index.html" target="_blank">API Documentation</a></b></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
