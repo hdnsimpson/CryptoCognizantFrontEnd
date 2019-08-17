@@ -6,7 +6,6 @@ import CoinList from 'src/Components/CoinList';
 import 'src/App.css';
 import FacebookLogin from 'react-facebook-login';
 import HeaderNoSearch from './Components/HeaderNoSearch';
-import HttpsRedirect from 'react-https-redirect';
 
 interface IState {
   authenticated: boolean,
@@ -66,47 +65,46 @@ class App extends React.Component<{}, IState>{
 
   public render() {
     return (
-      <HttpsRedirect>
-        <div>
-          {(!this.state.authenticated) ?
-            <div>
-              <HeaderNoSearch addCoin={this.addCoin} />
-              <div className="container">
-                <div className="row">
-                  <div className="auth">
-                    <p className="authMessage">Please authenticate with Facebook to begin</p>
-                    <FacebookLogin
-                      appId="2310147239225554"
-                      autoLoad={false}
-                      fields="name,email,picture"
-                      onClick={this.facebookLoginClicked}
-                      callback={this.responseFacebook}
-                    />
-                  </div>
+      <div>
+        {(!this.state.authenticated) ?
+          <div>
+            <HeaderNoSearch addCoin={this.addCoin} />
+            <div className="container">
+              <div className="row">
+                <div className="auth">
+                  <p className="authMessage">Please authenticate with Facebook to begin</p>
+                  <FacebookLogin
+                    appId="2310147239225554"
+                    autoLoad={false}
+                    fields="name,email,picture"
+                    onClick={this.facebookLoginClicked}
+                    callback={this.responseFacebook}
+                  />
                 </div>
               </div>
-              <Footer />
             </div>
-            : ""}
+            <Footer />
+          </div>
+          : ""}
 
-          {(this.state.authenticated) ?
-            <div>
-              <Header addCoin={this.addCoin} />
-              <div className="container">
-                <div className="row">
-                  <div className="col-9">
-                    <ExchangeArea currentCoin={this.state.coinSymbol} play={this.updateSym} />
-                  </div>
-                  <div className="col-3">
-                    <CoinList play={this.updateSym} mount={this.listMounted} />
-                  </div>
+        {(this.state.authenticated) ?
+          <div>
+            <Header addCoin={this.addCoin} />
+            <div className="container">
+              <div className="row">
+                <div className="col-9">
+                  <ExchangeArea currentCoin={this.state.coinSymbol} play={this.updateSym} />
+                </div>
+                <div className="col-3">
+                  <CoinList play={this.updateSym} mount={this.listMounted} />
                 </div>
               </div>
-              <Footer />
             </div>
-            : ""}
-        </div>
-      </HttpsRedirect>)
+            <Footer />
+          </div>
+          : ""}
+      </div>
+    )
   }
 
   private facebookLoginClicked(response: any) {
