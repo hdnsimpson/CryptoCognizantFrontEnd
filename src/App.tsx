@@ -29,6 +29,11 @@ class App extends React.Component<{}, IState>{
   }
 
   public addCoin = (sym: string) => {
+    sym = sym.replace(/"/g, '');
+    sym = sym.replace(/'/g, '');
+    sym = sym.replace(/&/g, '');
+    sym = sym.replace(/</g, '');
+    sym = sym.replace(/>/g, '');
     const body = { "sym": sym }
     fetch("https://cryptocognizantapidevops.azurewebsites.net/api/Coins", {
       body: JSON.stringify(body),
