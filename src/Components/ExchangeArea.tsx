@@ -45,7 +45,6 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
 
     public handleTableClick = (coinSymbol:any) => {
         window.scrollTo(0,0);
-        // this.props.play(videoUrl + "&t=" + timedURL + "s")
     }
 
     public makeTableBody = () => {
@@ -88,7 +87,7 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
 
     public render() {
         return (
-            <div className="caption-area">
+            <div className="exchange-area">
                 <div className="row">
                     <div className="col-3 justify-content-center align-self-center">
                         <h2><span className="red-heading">Trading</span> Pairs</h2>
@@ -120,7 +119,7 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
                         <th>Coin Symbol</th>
                         <th className="pairings">Trading Pairs</th>
                     </tr>
-                    <tbody className="captionTable">
+                    <tbody className="exchangeTable">
                         {this.state.body}
                     </tbody>
                 </table>

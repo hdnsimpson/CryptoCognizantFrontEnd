@@ -45,7 +45,7 @@ export default class CoinList extends React.Component<IProps,IState>{
                     <td className="align-middle cursorMode" onClick={() => this.handleLike(coin)}>{coin.isFavourite === true?<Favourite/>:<FavouriteBorder/>}</td>
                     <td className="align-middle"><img src={"https://www.cryptocompare.com" + coin.imageUrl} width="40px" alt={coin.coinSymbol + " Logo"}/></td>
                     <td className="align-middle"><b>{coin.coinSymbol}</b></td>
-                    <td className="align-middle video-list-close"><button onClick={() => this.deleteCoin(coin.coinId)}><Close/></button></td>
+                    <td className="align-middle coin-list-close"><button onClick={() => this.deleteCoin(coin.coinId)}><Close/></button></td>
                 </tr>)
                 if(coin.isFavourite){
                     output.unshift(row);
@@ -85,7 +85,7 @@ export default class CoinList extends React.Component<IProps,IState>{
 
     public render() {
         return (
-            <div className="video-list">
+            <div className="coin-list">
                 <h2 className="play-heading"><span className="red-heading">Coin </span>List</h2>
                 <table className="table">
                     {this.state.coinList}

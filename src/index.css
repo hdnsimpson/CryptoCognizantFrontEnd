@@ -77,14 +77,14 @@ h2 {
   word-wrap: break-word;
 }
 
-.video-list {
+.coin-list {
   background-color: #fdf4ff;
   overflow-x: hidden;
   overflow-y: scroll;
   height: 450px;
 }
 
-.video-list button {
+.coin-list button {
   border: none;
   background-color: #fdf4ff;
 }
@@ -93,17 +93,13 @@ h2 {
   cursor: pointer;
 }
 
-.video-list-close {
+.coin-list-close {
   width: 50px;
 }
 
-.caption-area {
+.exchange-area {
   background-color: #fdf4ff;
   padding: 30px;
-}
-
-.player {
-  background-color: black;
 }
 
 /* width */

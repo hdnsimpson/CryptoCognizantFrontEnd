@@ -10,7 +10,6 @@ import HeaderNoSearch from './Components/HeaderNoSearch';
 interface IState {
   authenticated: boolean,
   updateCoinList: any,
-  player: any,
   coinSymbol: string
   coinList: object
 }
@@ -22,19 +21,11 @@ class App extends React.Component<{}, IState>{
       authenticated: false,
       coinList: [],
       coinSymbol: "",
-      player: null,
       updateCoinList: null,
-
     }
 
     this.responseFacebook = this.responseFacebook.bind(this)
     this.facebookLoginClicked = this.facebookLoginClicked.bind(this)
-  }
-
-  public setRef = (playerRef: any) => {
-    this.setState({
-      player: playerRef
-    })
   }
 
   public addCoin = (sym: string) => {
