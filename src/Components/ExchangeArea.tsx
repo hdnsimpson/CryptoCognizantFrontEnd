@@ -7,11 +7,11 @@ import * as React from 'react'
 interface IState {
     input: string,
     result: any,
-    body:any,
+    body: any,
 }
 
 interface IProps {
-    currentCoin:any,
+    currentCoin: any,
     play: any
 }
 
@@ -24,40 +24,46 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
             result: [],
         }
     }
-        
+
 
     public search = () => {
-        if(this.state.input.trim() === ""){
-            this.setState({result:[]},()=>this.makeTableBody())
-        }else{
-            fetch("https://cryptocognizantapidevops.azurewebsites.net/api/Coins/SearchByPairs/"+this.state.input, {
+        let sym:string = this.state.input;
+        sym = sym.replace(/"/g, '');
+        sym = sym.replace(/'/g, '');
+        sym = sym.replace(/&/g, '');
+        sym = sym.replace(/</g, '');
+        sym = sym.replace(/>/g, '');
+        if (sym.trim() === "") {
+            this.setState({ result: [] }, () => this.makeTableBody())
+        } else {
+            fetch("https://cryptocognizantapidevops.azurewebsites.net/api/Coins/SearchByPairs/" + sym, {
                 headers: {
-                  Accept: "text/plain"
+                    Accept: "text/plain"
                 },
-                method:"GET"
+                method: "GET"
             }).then(response => {
                 return response.json()
             }).then(answer => {
-                this.setState({result:answer},()=>this.makeTableBody())
+                this.setState({ result: answer }, () => this.makeTableBody())
             })
         }
     }
 
-    public handleTableClick = (coinSymbol:any) => {
-        window.scrollTo(0,0);
+    public handleTableClick = (coinSymbol: any) => {
+        window.scrollTo(0, 0);
     }
 
     public makeTableBody = () => {
         const toRet: any[] = [];
-        this.state.result.sort((a:any, b:any)=>{
-            if(a.coinSymbol === b.coinSymbol){
+        this.state.result.sort((a: any, b: any) => {
+            if (a.coinSymbol === b.coinSymbol) {
                 return 0;
-            }else if(a.coinSymbol === this.props.currentCoin){
+            } else if (a.coinSymbol === this.props.currentCoin) {
                 return -1;
-            }else if(b.coinSymbol === this.props.currentCoin){
+            } else if (b.coinSymbol === this.props.currentCoin) {
                 return 1;
             }
-            else{
+            else {
                 return a.coinSymbol.localeCompare(b.coinSymbol);
             }
         })
@@ -72,16 +78,16 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
             })
         });
         if (toRet.length === 0) {
-            if(this.state.input.trim() === ""){
+            if (this.state.input.trim() === "") {
                 const errorCase = <div><p>Sorry you need to still search</p></div>
-                this.setState({body:errorCase})
-            }else{
+                this.setState({ body: errorCase })
+            } else {
                 const errorCase = <div><p>Sorry no results were returned for "{this.state.input}"</p></div>
-                this.setState({body:errorCase})
+                this.setState({ body: errorCase })
             }
         }
-        else{
-            this.setState({body:toRet})
+        else {
+            this.setState({ body: toRet })
         }
     }
 
@@ -93,7 +99,7 @@ export default class ExchangeArea extends React.Component<IProps, IState>{
                         <h2><span className="red-heading">Trading</span> Pairs</h2>
                     </div>
                     <div className="col-9">
-                        
+
                         <TextField
                             id="Search-Bar"
                             className="SearchBar"
