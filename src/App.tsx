@@ -6,6 +6,7 @@ import CoinList from 'src/Components/CoinList';
 import 'src/App.css';
 import FacebookLogin from 'react-facebook-login';
 import HeaderNoSearch from './Components/HeaderNoSearch';
+import HttpsRedirect from 'react-https-redirect';
 
 interface IState {
   authenticated: boolean,
@@ -24,7 +25,7 @@ class App extends React.Component<{}, IState>{
       coinSymbol: "",
       player: null,
       updateCoinList: null,
-      
+
     }
 
     this.responseFacebook = this.responseFacebook.bind(this)
@@ -38,7 +39,7 @@ class App extends React.Component<{}, IState>{
   }
 
   public addCoin = (sym: string) => {
-    const body = {"sym": sym}
+    const body = { "sym": sym }
     fetch("https://cryptocognizantapidevops.azurewebsites.net/api/Coins", {
       body: JSON.stringify(body),
       headers: {
@@ -52,10 +53,10 @@ class App extends React.Component<{}, IState>{
   }
 
   public updateSym = (sym: string) => {
-    if(this.state.coinSymbol === sym){
-      this.setState({coinSymbol : ""},() => this.setState({coinSymbol: sym}))
-    }else{
-      this.setState({coinSymbol:sym})
+    if (this.state.coinSymbol === sym) {
+      this.setState({ coinSymbol: "" }, () => this.setState({ coinSymbol: sym }))
+    } else {
+      this.setState({ coinSymbol: sym })
     }
   }
 
@@ -64,45 +65,48 @@ class App extends React.Component<{}, IState>{
   }
 
   public render() {
-    return (<div>
-      {(!this.state.authenticated) ?
-      <div>
-      <HeaderNoSearch addCoin={this.addCoin} />
-      <div className="container">
-        <div className="row">
-          <div className="auth">
-          <p className="authMessage">Please authenticate with Facebook to begin</p>
-          <FacebookLogin
-            appId="2310147239225554"
-            autoLoad={false}
-            fields="name,email,picture"
-            onClick={this.facebookLoginClicked}
-            callback={this.responseFacebook}
-            />
+    return (
+      <HttpsRedirect>
+        <div>
+          {(!this.state.authenticated) ?
+            <div>
+              <HeaderNoSearch addCoin={this.addCoin} />
+              <div className="container">
+                <div className="row">
+                  <div className="auth">
+                    <p className="authMessage">Please authenticate with Facebook to begin</p>
+                    <FacebookLogin
+                      appId="2310147239225554"
+                      autoLoad={false}
+                      fields="name,email,picture"
+                      onClick={this.facebookLoginClicked}
+                      callback={this.responseFacebook}
+                    />
+                  </div>
+                </div>
+              </div>
+              <Footer />
             </div>
-        </div>
-      </div>
-      <Footer />
-      </div>
-      : ""}
+            : ""}
 
-      {(this.state.authenticated) ?
-      <div>
-      <Header addCoin={this.addCoin} />
-      <div className="container">
-        <div className="row">
-          <div className="col-9">
-            <ExchangeArea currentCoin={this.state.coinSymbol} play={this.updateSym} />
-          </div>
-          <div className="col-3">
-            <CoinList play={this.updateSym} mount={this.listMounted} />
-          </div>
+          {(this.state.authenticated) ?
+            <div>
+              <Header addCoin={this.addCoin} />
+              <div className="container">
+                <div className="row">
+                  <div className="col-9">
+                    <ExchangeArea currentCoin={this.state.coinSymbol} play={this.updateSym} />
+                  </div>
+                  <div className="col-3">
+                    <CoinList play={this.updateSym} mount={this.listMounted} />
+                  </div>
+                </div>
+              </div>
+              <Footer />
+            </div>
+            : ""}
         </div>
-      </div>
-      <Footer />
-      </div>
-      : ""}
-    </div>)
+      </HttpsRedirect>)
   }
 
   private facebookLoginClicked(response: any) {
@@ -112,7 +116,7 @@ class App extends React.Component<{}, IState>{
   private responseFacebook = (response: any) => {
     console.log(response);
     if (!(response.name === "")) {
-      this.setState({authenticated: true})
+      this.setState({ authenticated: true })
     }
   }
 }
