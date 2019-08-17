@@ -1,6 +1,6 @@
 import Close from '@material-ui/icons/Close'
-import Favourite from '@material-ui/icons/Favorite'
-import FavouriteBorder from '@material-ui/icons/FavoriteBorder'
+import CheckBox from '@material-ui/icons/CheckBox'
+import CheckBoxOutlineBlank from '@material-ui/icons/CheckBoxOutlineBlank'
 import * as React from 'react'
 
 interface IState{
@@ -42,7 +42,7 @@ export default class CoinList extends React.Component<IProps,IState>{
             const output:any[] = []
             result.forEach((coin:any) => {
                 const row = (<tr>
-                    <td className="align-middle cursorMode" onClick={() => this.handleLike(coin)}>{coin.isFavourite === true?<Favourite/>:<FavouriteBorder/>}</td>
+                    <td className="align-middle cursorMode" onClick={() => this.handleLike(coin)}>{coin.isFavourite === true?<CheckBox/>:<CheckBoxOutlineBlank/>}</td>
                     <td className="align-middle"><img src={"https://www.cryptocompare.com" + coin.imageUrl} width="40px" alt={coin.coinSymbol + " Logo"}/></td>
                     <td className="align-middle"><b>{coin.coinSymbol}</b></td>
                     <td className="align-middle coin-list-close"><button onClick={() => this.deleteCoin(coin.coinId)}><Close/></button></td>
